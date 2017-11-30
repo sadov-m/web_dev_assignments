@@ -1,0 +1,125 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Парсер</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Anaphora Parser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="parser.html">Парсер</a></li>
+            <li><a href="download.html">Корпус</a></li>
+            <li class="active"><a href="faq.html">FAQ</a></li>
+          </ul>
+          <!--<form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Вопрос — ответ</h2>
+      <h3><strong>Так что же всё-таки выделяет данный инструмент?</strong></h3>
+      <p class="text">Наш парсер выделяет такие компоненты высказывания, которые ссылаются на один и тот же объект или ситуацию.</p>
+      <h3><strong>То есть инструмент выделяет все-все такие компоненты высказывания?</strong></h3>
+      <p class="text">Не совсем так: парсер работает с <i>лексическим повторами</i>, <i>тождествами</i>, <i>именованными сущностями</i>, <i>местоимёнными анафорами</i> и <i>представителями класса сущностей</i>.</p>
+      <h3><strong>А можно примеры для каждого из них?</strong></h3>
+      <div class="row">
+        <div class="col-md-3">
+          <h4><i>Лексический повтор</i></h4>
+          <p class="text">К полудню вышел на открытую <mark>поляну</mark>. Посреди <mark>поляны</mark> стояла избушка.</p>
+        </div>
+        <div class="col-md-3">
+          <h4><i>Именованные сущности</i></h4>
+          <p class="text"><mark>Евгений Плющенко</mark> – единственный в мире <mark>фигурист</mark>, <mark>который</mark> смог завоевать медали четырёх зимних Олимпиад</p>
+        </div>
+        <div class="col-md-3">
+          <h4><i>Местоимённая анафора</i></h4>
+          <p class="text"><mark>Даррелл Лэнс Эбботт</mark> родился в Арлингтоне (штат Техас). <mark>Его</mark> отец владел звукозаписывающей студией «Pantego Sound Studios» в Пантего.</p>
+        </div>
+        <div class="col-md-3">
+          <h4><i>Тождества</i></h4>
+          <p class="text">В 1920 году <mark>Гмелин</mark> прислал в Веймар свои гравюры на меди. <mark>Художник</mark> изобразил пустынные местности Кам-панъи.</p>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="container">
+      <h2>Признаки</h2>
+      <!--<div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <h3>Признаки 1</h3>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+          <h3>Признаки 2</h3>
+        </div>
+      </div>-->
+
+      <div class="row">
+        <div class="col-md-3">
+          <h4><i>Группа признаков 1</i></h4>
+        </div>
+        <div class="col-md-3">
+          <h4><i>Группа признаков 2</i></h4>
+        </div>
+        <div class="col-md-3">
+          <h4><i>Группа признаков 3</i></h4>
+        </div>
+        <div class="col-md-3">
+          <h4><i>Группа признаков 4</i></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <hr>
+      <footer>
+        <p>&copy; Anaphora Parser 2017</p>
+      </footer>
+    </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+      <script src="js/vendor/bootstrap.min.js"></script>
+
+      <script src="js/main.js"></script>
+    </body>
+</html>

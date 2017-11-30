@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Malaka</title>
+        <title>Анафорический парсер</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -36,12 +36,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand active" href="index.html">Anaphora Parser</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Index</a></li>
-            <li><a href="test.html">Test</a></li>
+            <li><a href="parser.html">Парсер</a></li>
+            <li><a href="download.html">Корпус</a></li>
+            <li><a href="faq.html">FAQ</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right" role="form">
             <div class="form-group">
@@ -53,31 +54,87 @@
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
         </div><!--/.navbar-collapse -->
+        </div>
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1 class='hello'>Hello, world!</h1>
-        <h1 class="seagull">Ti chto, a, gangster kakoy to?</h1>
-		<p class="text-success">This is a template for a simple marketing or smth else. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-        <p>Nu chto, pokodim? <span class="glyphicon glyphicon-eye-open"></span></p>
-        <img class="img-circle" src="img/mancini.jpg" alt="something" width="144" height="144">
-        <p></p>
+        <h2 class="text">Привет!</h2>
+        <p class="text">Этот сайт посвящён проекту <strong>Anaphora Parser</strong>. Его цель - создание инструмента для автоматического выявления кореферентных и анафорических отношений из связного текста на русском языке.</p>
+        <!--<p></p>
         <pre>import malaka
 malaka.malaka.get()
-        </pre>
+        </pre>-->
       </div>
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
+      <h3>Ничего не понятно?</h4>
+      <h5 class="text">Советуем перейти в раздел <a href="faq.html">часто задаваемых вопросов</a>.</h5>
+      <h3>Не терпится поскорее приступить к работе?</h4>
+      <h5 class="text"><a href="parser.html">Парсер</a> уже ждёт вас.</h5>
+      <hr>
+    </div>
+
+    <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <h3>Об авторах</h3>
+          <h4>Руководители</h4>
+          <ul>
+            <li>Светлана Юрьевна Толдова</li>
+            <li>Максим Ионов</li>
+          </ul>
+          <h4>Участники</h4>
+          <ul>
+            <li>Александра Липунова</li>
+            <li>Егор Моисеев</li>
+            <li>Матвей Колбасов</li>
+            <li>Михаил Садов</li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4">
+          <h3>Метрики качества</h3>
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <td>Имя модели</td>
+                <td>Общая точность</td>
+                <td>Точность для кореферентных пар</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>model_3.pkl</td>
+                <td>0.401</td>
+                <td>0.983</td>
+              </tr>
+              <tr>
+                <td>model_4.pkl</td>
+                <td>0.598</td>
+                <td>0.664</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <h3>Наши корпуса</h3>
+          <ul>
+            <li>Корпус 1</li>
+            <li>Корпус 2</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Example row of columns -->
+      <!--<h1>Анафорический парсер</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Что такое анафорический парсер?</h2>
+          <p>Инструмент для выявления кореферентных и анафорических отношений из связного текста</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
@@ -119,12 +176,12 @@ malaka.malaka.get()
 		  </form>
 		  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
-      </div>
+      </div>-->
 
       <hr>
 
       <footer>
-        <p>&copy; Company 2015</p>
+        <p>&copy; Anaphora Parser 2017</p>
       </footer>
     </div> <!-- /container -->        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

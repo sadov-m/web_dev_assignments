@@ -1,0 +1,138 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Парсер</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Anaphora Parser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="parser.html">Парсер</a></li>
+            <li><a href="download.html">Корпус</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+          <!--<form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Разметить текст</h2>
+      <div class="row">
+        <div class="col-md-9">
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#input">Поле для ввода</a></li>
+            <li><a data-toggle="tab" href="#output">Результаты</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="input" class="tab-pane fade in active">
+              <form class="form-horizontal" method="POST" action="/">
+                <textarea class="form-control input" rows="20" id="lstm_text" name="input"></textarea>
+              </form>
+            </div>
+        
+            <div id="output" class="tab-pane fade">
+              <form class="form-horizontal" method="POST" action="/">
+                <textarea class="form-control output" rows="20" id="output"></textarea>
+              </form>
+            </div>
+          </div>
+          <p><a class="btn btn-success" href="#output" role="button">Разметить!</a></p>
+        </div>
+        <div class="col-md-3">
+          <h3>Выбрать признаки</h3>
+            <p>Важно: для разных типов текста стоит попробовать разные типы признаков для достижения наилучшего результата. Чтобы подробнее узнать о признаках, можно посетить <a href="faq.html">страницу часто задаваемых вопросов</a>.</p>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Группы признаков
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation" class="dropdown-header">Признаки 1</li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 1</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 2</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 3</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation" class="dropdown-header">Признаки 2</li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 1</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!--<div class="jumbotron">
+      <div class="container">
+        <h1>Hello, test!</h1>
+        <p class="text-success">Nu che, potestim?</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p>Nu chto, pokodim? <span class="glyphicon glyphicon-eye-open"></span></p>
+        <img class="img-circle" src="C:\Users\Ольга\Desktop\хобби\картинки\4Eq2LA6ZKBI.jpg" alt="something" width="144" height="144">
+        <p></p>
+        <pre>import malaka
+malaka.malaka.get()
+        </pre>
+      </div>
+    </div>-->
+
+    <div class="container">
+      <h2>Разметить файл</h2>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="input-group">
+            <input type="text" id="file" class="form-control" value="">
+            <span class="input-group-btn">
+              <button class="btn btn-success tr-calculate" data-var="file" type="button" data-loading-text="..Загрузка..">Выбрать</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <hr>
+      <footer>
+        <p>&copy; Anaphora Parser 2017</p>
+      </footer>
+    </div> <!-- /container -->        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
