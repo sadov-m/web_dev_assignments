@@ -11,17 +11,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
         <style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
         </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -34,9 +34,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="parser.html">Парсер</a></li>
-            <li><a href="download.html">Корпус</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li class="active"><a href="{{ url_for('get_parser')}}">Парсер</a></li>
+            <li><a href="{{ url_for('get_download')}}">Корпус</a></li>
+            <li><a href="{{ url_for('get_faq')}}">FAQ</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right" role="form">
             <div class="form-group">
@@ -69,7 +69,7 @@
         
             <div id="output" class="tab-pane fade">
               <form class="form-horizontal" method="POST" action="/">
-                <textarea class="form-control output" rows="20" id="output"></textarea>
+                <textarea class="form-control output" rows="20" name="output"></textarea>
               </form>
             </div>
           </div>
@@ -128,11 +128,11 @@ malaka.malaka.get()
       <footer>
         <p>&copy; Anaphora Parser 2017</p>
       </footer>
-    </div> <!-- /container -->        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    </div>
+        <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>-->
 
-        <script src="js/vendor/bootstrap.min.js"></script>
-
-        <script src="js/main.js"></script>
+        <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     </body>
 </html>
