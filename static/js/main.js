@@ -107,10 +107,10 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#input').attr("class", "tab-pane fade");
+	/*$('#input').attr("class", "tab-pane fade");
 	$('#output').attr("class", "tab-pane fade in active");
 	$('#enter_field').attr("class", "");
-	$('#result_field').attr("class", "active");
+	$('#result_field').attr("class", "active");*/
 
 
     return false;
