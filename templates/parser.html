@@ -10,7 +10,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
         <style>
             body {
@@ -20,8 +19,11 @@
         </style>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-
         <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+        <script type="text/javascript">
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -30,7 +32,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Anaphora Parser</a>
+          <a class="navbar-brand" href="{{ url_for('get_index')}}">Anaphora Parser</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -38,16 +40,6 @@
             <li><a href="{{ url_for('get_download')}}">Корпус</a></li>
             <li><a href="{{ url_for('get_faq')}}">FAQ</a></li>
           </ul>
-          <!--<form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
         </div>
       </div>
     </nav>
@@ -57,23 +49,23 @@
       <div class="row">
         <div class="col-md-9">
           <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#input">Поле для ввода</a></li>
-            <li><a data-toggle="tab" href="#output">Результаты</a></li>
+            <li id="enter_field" class="active"><a data-toggle="tab">Поле для ввода</a></li>
+            <li id="result_field"><a data-toggle="tab">Результаты</a></li>
           </ul>
           <div class="tab-content">
             <div id="input" class="tab-pane fade in active">
               <form class="form-horizontal" method="POST" action="/">
-                <textarea class="form-control input" rows="20" id="lstm_text" name="input"></textarea>
+                <textarea class="form-control" rows="20" id="text_to_parse" name="input"></textarea>
               </form>
             </div>
         
             <div id="output" class="tab-pane fade">
-              <form class="form-horizontal" method="POST" action="/">
-                <textarea class="form-control output" rows="20" name="output"></textarea>
+              <form class="form-horizontal" action="/">
+                <textarea class="form-control" rows="20" name="output" id="results"></textarea>
               </form>
             </div>
           </div>
-          <p><a class="btn btn-success" href="#output" role="button">Разметить!</a></p>
+          <p><a class="btn btn-success pushme" role="button">Разметить!</a></p>
         </div>
         <div class="col-md-3">
           <h3>Выбрать признаки</h3>
@@ -93,21 +85,12 @@
             </div>
         </div>
       </div>
+        <!--<div class="container">
+            <form class="form-horizontal" action="/">
+                <textarea class="form-control output" rows="20" name="output" id="results"></textarea>
+            </form>
+        </div>-->
     </div>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <!--<div class="jumbotron">
-      <div class="container">
-        <h1>Hello, test!</h1>
-        <p class="text-success">Nu che, potestim?</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-        <p>Nu chto, pokodim? <span class="glyphicon glyphicon-eye-open"></span></p>
-        <img class="img-circle" src="C:\Users\Ольга\Desktop\хобби\картинки\4Eq2LA6ZKBI.jpg" alt="something" width="144" height="144">
-        <p></p>
-        <pre>import malaka
-malaka.malaka.get()
-        </pre>
-      </div>
-    </div>-->
 
     <div class="container">
       <h2>Разметить файл</h2>
@@ -129,8 +112,6 @@ malaka.malaka.get()
         <p>&copy; Anaphora Parser 2017</p>
       </footer>
     </div>
-        <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>-->
-
         <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>

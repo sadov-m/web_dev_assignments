@@ -81,7 +81,7 @@ $(function (){
 		showed = !showed;
 		return false;
 		});
-});*/
+});
 
 $(function (){
 	$('form').submit(function(){
@@ -90,4 +90,29 @@ $(function (){
 		alert($this.find('input[name="email"]').val());
 		return false;
 	});
+});*/
+
+// DOM is ready
+$(document).ready(function () {
+  // Bind click event
+  $('.pushme').click(function () {
+	  var text = document.getElementById("text_to_parse").value;
+
+	$.ajax({
+		type: "POST",
+		url: $SCRIPT_ROOT + "/pred/",
+		data: text,
+		success: function(data){
+			$("#results").html(data);
+		}
+	});
+
+	$('#input').attr("class", "tab-pane fade");
+	$('#output').attr("class", "tab-pane fade in active");
+	$('#enter_field').attr("class", "");
+	$('#result_field').attr("class", "active");
+
+
+    return false;
+  });
 });
