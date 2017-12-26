@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_index():
-    return render_template('index.html')
+    return render_template('starter.html')
 
 
 @app.route('/faq')
@@ -37,8 +37,8 @@ def get_parser():
 
 @app.route('/pred/', methods=['GET', 'POST'])
 def predict():
-    text = request.get_data().decode('utf-8')
-    response = '501 good'
+    text, model_name = request.get_data().decode('utf-8').split('///')
+    response = text + ' ' + model_name + ' ' + '501 good'
     return response
 
 

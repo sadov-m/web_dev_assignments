@@ -93,26 +93,47 @@ $(function (){
 });*/
 
 // DOM is ready
+var model_name = 'default_model';
+
 $(document).ready(function () {
   // Bind click event
   $('.pushme').click(function () {
-	  var text = document.getElementById("text_to_parse").value;
+	  /*var text = document.getElementById("text_to_parse").value;*/
+	  var text = $('#text_to_parse').val();
 
 	$.ajax({
 		type: "POST",
 		url: $SCRIPT_ROOT + "/pred/",
-		data: text,
+		data: text+'///'+model_name,
 		success: function(data){
 			$("#results").html(data);
 		}
 	});
+
+	$('#input').removeClass('in active');
+	$('#output').addClass('in active');
+	$('#enter_field').removeClass("active");
+	$('#result_field').addClass("active");
 
 	/*$('#input').attr("class", "tab-pane fade");
 	$('#output').attr("class", "tab-pane fade in active");
 	$('#enter_field').attr("class", "");
 	$('#result_field').attr("class", "active");*/
 
-
     return false;
   });
+  $('#group_one').click(function () {
+      var $this = $(this);
+      $(this).addClass('active');
+      var featureset_name = $(this).text();
+      model_name = 'group_one';
+      $('#menu1').text(featureset_name);
+
+      return false;
+  });
+  /*$('#enter_field').click(function () {
+      $('#text_to_parse').val('');
+
+      return false;
+  })*/
 });

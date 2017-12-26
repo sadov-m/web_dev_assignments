@@ -1,51 +1,20 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Парсер</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
-        <script type="text/javascript">
-            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-        </script>
+{% extends "index.html" %}
+{% block title %}Парсер{% endblock %}
 
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="{{ url_for('get_index')}}">Anaphora Parser</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ url_for('get_parser')}}">Парсер</a></li>
-            <li><a href="{{ url_for('get_download')}}">Корпус</a></li>
-            <li><a href="{{ url_for('get_faq')}}">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+{% block ref_list %}
+<li><a href="{{ url_for('get_parser')}}">Парсер</a></li>
+<li><a href="{{ url_for('get_download')}}">Корпус</a></li>
+<li><a href="{{ url_for('get_faq')}}">FAQ</a></li>
+</ul>
+{% endblock %}
 
-    <div class="container">
-      <h2>Разметить текст</h2>
+{% block jumbotron %}
+<div class="container">
+</div>
+{% endblock %}
+
+{% block beginner %}
+<h2>Разметить текст</h2>
       <div class="row">
         <div class="col-md-9">
           <ul class="nav nav-tabs">
@@ -75,7 +44,7 @@
               <span class="caret"></span></button>
               <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                 <li role="presentation" class="dropdown-header">Признаки 1</li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 1</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" id="group_one">Группа 1</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 2</a></li>
                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 3</a></li>
                 <li role="presentation" class="divider"></li>
@@ -85,15 +54,10 @@
             </div>
         </div>
       </div>
-        <!--<div class="container">
-            <form class="form-horizontal" action="/">
-                <textarea class="form-control output" rows="20" name="output" id="results"></textarea>
-            </form>
-        </div>-->
-    </div>
+{% endblock %}
 
-    <div class="container">
-      <h2>Разметить файл</h2>
+{% block continue %}
+<h2>Разметить файл</h2>
       <div class="row">
         <div class="col-md-9">
           <div class="input-group">
@@ -104,16 +68,4 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="container">
-      <hr>
-      <footer>
-        <p>&copy; Anaphora Parser 2017</p>
-      </footer>
-    </div>
-        <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    </body>
-</html>
+{% endblock %}

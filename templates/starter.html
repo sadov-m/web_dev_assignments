@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+{% block title %}Анафорический Парсер{% endblock %}
+
+{% block ref_list %}
+<li><a href="{{ url_for('get_parser')}}">Парсер</a></li>
+<li><a href="{{ url_for('get_download')}}">Корпус</a></li>
+<li><a href="{{ url_for('get_faq')}}">FAQ</a></li>
+</ul>
+{% endblock %}
+
+{% block jumbotron %}
+<div class="container">
+    <h2 class="text">Привет!</h2>
+    <p class="text">Этот сайт посвящён проекту <strong>Anaphora Parser</strong>. Его цель - создание инструмента для автоматического выявления кореферентных и анафорических отношений из связного текста на русском языке.</p>
+</div>
+{% endblock %}
+
+{% block beginner %}
+<h3>Ничего не понятно?</h3>
+<h5 class="text">Советуем перейти в раздел <a href="{{ url_for('get_faq')}}">часто задаваемых вопросов</a>.</h5>
+<h3>Не терпится поскорее приступить к работе?</h3>
+<h5 class="text"><a href="parser.html">Парсер</a> уже ждёт вас.</h5>
+{% endblock %}
+
+{% block continue %}
+<div class="row">
+        <div class="col-md-4">
+          <h3>Об авторах</h3>
+          <h4>Руководители</h4>
+          <ul>
+            <li>Светлана Юрьевна Толдова</li>
+            <li>Максим Ионов</li>
+          </ul>
+          <h4>Участники</h4>
+          <ul>
+            <li>Александра Липунова</li>
+            <li>Егор Моисеев</li>
+            <li>Матвей Колбасов</li>
+            <li>Михаил Садов</li>
+          </ul>
+        </div>
+        
+        <div class="col-md-4">
+          <h3>Метрики качества</h3>
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <td>Имя модели</td>
+                <td>Общая точность</td>
+                <td>Точность для кореферентных пар</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>model_3.pkl</td>
+                <td>0.401</td>
+                <td>0.983</td>
+              </tr>
+              <tr>
+                <td>model_4.pkl</td>
+                <td>0.598</td>
+                <td>0.664</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <h3>Наши корпуса</h3>
+          <ul>
+            <li>Корпус 1</li>
+            <li>Корпус 2</li>
+          </ul>
+        </div>
+      </div>
+{% endblock %}

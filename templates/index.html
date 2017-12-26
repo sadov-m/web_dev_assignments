@@ -6,7 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Анафорический парсер</title>
+        <title>{% block title %}{% endblock %}</title>
+        <!--Анафорический парсер-->
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -22,6 +23,9 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
         <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+        <script type="text/javascript">
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        </script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -38,48 +42,38 @@
           </button>
           <a class="navbar-brand active" href="{{ url_for('get_index')}}">Anaphora Parser</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{{ url_for('get_parser')}}">Парсер</a></li>
+        <div class="navbar-collapse collapse">
+          <ul id="ref_list" class="nav navbar-nav">
+            {% block ref_list %}{% endblock %}
+            <!--<li><a href="{{ url_for('get_parser')}}">Парсер</a></li>
             <li><a href="{{ url_for('get_download')}}">Корпус</a></li>
-            <li><a href="{{ url_for('get_faq')}}">FAQ</a></li>
+            <li><a href="{{ url_for('get_faq')}}">FAQ</a></li>-->
           </ul>
-          <!--<form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
         </div>
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="container">
+      {% block jumbotron %}{% endblock %}
+      <!--<div class="container">
         <h2 class="text">Привет!</h2>
         <p class="text">Этот сайт посвящён проекту <strong>Anaphora Parser</strong>. Его цель - создание инструмента для автоматического выявления кореферентных и анафорических отношений из связного текста на русском языке.</p>
-        <!--<p></p>
-        <pre>import malaka
-malaka.malaka.get()
-        </pre>-->
-      </div>
+      </div>-->
     </div>
 
-    <div class="container">
-      <h3>Ничего не понятно?</h3>
+    <div class="container" id="beginner">
+      {% block beginner %}{% endblock %}
+      <!--<h3>Ничего не понятно?</h3>
       <h5 class="text">Советуем перейти в раздел <a href="{{ url_for('get_faq')}}">часто задаваемых вопросов</a>.</h5>
       <h3>Не терпится поскорее приступить к работе?</h3>
-      <h5 class="text"><a href="parser.html">Парсер</a> уже ждёт вас.</h5>
+      <h5 class="text"><a href="parser.html">Парсер</a> уже ждёт вас.</h5>-->
       <hr>
     </div>
 
-    <div class="container">
-      <div class="row">
+    <div class="container" id="continue">
+      {% block continue %}{% endblock %}
+      <!--<div class="row">
         <div class="col-md-4">
           <h3>Об авторах</h3>
           <h4>Руководители</h4>
@@ -128,56 +122,7 @@ malaka.malaka.get()
             <li>Корпус 2</li>
           </ul>
         </div>
-      </div>
-      <!-- Example row of columns -->
-      <!--<h1>Анафорический парсер</h1>
-      <div class="row">
-        <div class="col-md-6">
-          <h2>Что такое анафорический парсер?</h2>
-          <p>Инструмент для выявления кореферентных и анафорических отношений из связного текста</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <table class="table table-bordered table-striped table-hover">
-            <thead>
-              <tr>
-                <td>name</td>
-                <td>genre</td>
-                <td>year</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>DM</td>
-                <td>rock</td>
-                <td>1983</td>
-              </tr>
-            </tbody>
-          </table>
-          <p><a class="btn btn-danger" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <ul>
-            <li>i just</li>
-            <li>can't get enough</li>
-          </ul>
-          <form action="index.html" method="POST">
-			<div class="form-group">
-				<label for="exampleInputEmail1">e-mail address</label>
-				<input type="email" class="form-control" id="exampleInput" placeholder="Email" name="email">
-			</div>
-			<div class="form-group">
-				<label for="pwd1">Password</label>
-				<input type="password" class="form-control" id="exampleInput" placeholder="Password" name="pwd">
-			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
-		  </form>
-		  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
       </div>-->
-
       <hr>
 
       <footer>
