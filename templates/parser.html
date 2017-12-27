@@ -2,7 +2,7 @@
 {% block title %}Парсер{% endblock %}
 
 {% block ref_list %}
-<li><a href="{{ url_for('get_parser')}}">Парсер</a></li>
+<li class="active"><a href="{{ url_for('get_parser')}}">Парсер</a></li>
 <li><a href="{{ url_for('get_download')}}">Корпус</a></li>
 <li><a href="{{ url_for('get_faq')}}">FAQ</a></li>
 </ul>
@@ -10,6 +10,8 @@
 
 {% block jumbotron %}
 <div class="container">
+  <h2>Текст или файл?</h2>
+  <p>Мы сделали доступными оба варианта: достаточно просто ввести нужный текст в поле или загрузить ваш .txt файл.</p>
 </div>
 {% endblock %}
 
@@ -36,36 +38,42 @@
           </div>
           <p><a class="btn btn-success pushme" role="button">Разметить!</a></p>
         </div>
-        <div class="col-md-3">
-          <h3>Выбрать признаки</h3>
-            <p>Важно: для разных типов текста стоит попробовать разные типы признаков для достижения наилучшего результата. Чтобы подробнее узнать о признаках, можно посетить <a href="faq.html">страницу часто задаваемых вопросов</a>.</p>
+          <div class="col-md-3">
+            <h3>Разметить файл</h3>
+            <p>Загрузить файл и разметить его!</p>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file"  name="file" />
+            <input type="submit" class="btn btn-success file-sender" />
+          </form>
+            <h3 style="color: #337ab7">Выбрать признаки</h3>
+            <p>Чтобы подробнее узнать о признаках, можно посетить <a href="faq.html">страницу часто задаваемых вопросов</a>.</p>
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Группы признаков
-              <span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                <li role="presentation" class="dropdown-header">Признаки 1</li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" id="group_one">Группа 1</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 2</a></li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 3</a></li>
-                <li role="presentation" class="divider"></li>
-                <li role="presentation" class="dropdown-header">Признаки 2</li>
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Группа 1</a></li>
-              </ul>
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <!--<li role="presentation" class="dropdown-header">Признаки по умолчанию</li>-->
+                  <li role="presentation"><a role="menuitem" tabindex="-1" id="default">По умолчанию</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation" class="dropdown-header">Другие признаки</li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" id="group_one">Группа 1</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" id="group_two">Группа 2</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" id="group_three">Группа 3</a></li>
+                </ul>
             </div>
-        </div>
+          </div>
       </div>
 {% endblock %}
 
 {% block continue %}
-<h2>Разметить файл</h2>
+<!--<h2>Разметить файл</h2>
       <div class="row">
         <div class="col-md-9">
           <div class="input-group">
-            <input type="text" id="file" class="form-control" value="">
+            <input class="form-control" value="">
             <span class="input-group-btn">
               <button class="btn btn-success tr-calculate" data-var="file" type="button" data-loading-text="..Загрузка..">Выбрать</button>
             </span>
           </div>
         </div>
-      </div>
+      </div>-->
 {% endblock %}
